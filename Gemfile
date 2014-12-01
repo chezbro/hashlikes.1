@@ -49,6 +49,7 @@ gem 'bootstrap-sass', github: 'twbs/bootstrap-sass'
 gem 'bootstrap-sass-extras'
 gem 'rails_config'
 gem 'binding_of_caller'
+gem "rails_12factor", group: :production
 
 group :development, :test do
   gem 'dotenv-rails'
