@@ -14,5 +14,10 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require bootstrap
+//= require init
+//= require jquery.poptrox.min
+//= require payments
+//= require skel.min
+//= require users
 
 //= require_tree .
