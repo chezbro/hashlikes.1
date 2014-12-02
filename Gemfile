@@ -50,6 +50,9 @@ gem 'bootstrap-sass-extras'
 gem 'rails_config'
 gem 'binding_of_caller'
 gem "rails_12factor", group: :production
+gem 'stripe', :git => 'https://github.com/stripe/stripe-ruby'
+gem "haml-rails"
+
 
 group :development, :test do
   gem 'dotenv-rails'

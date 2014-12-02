@@ -1,9 +1,16 @@
 Rails.application.routes.draw do
-  resources :payments
 
   resources :users
 
   root "static_pages#index"
+
+
+  # Payment
+  get '/payments/index' => "payments#index", as:"payments_index"
+
+  # Charges
+  get '/charges/index' => 'charges#index', as: 'charges_index'
+  post '/charges/one_month' => 'charges#one_month', as: 'one_month'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

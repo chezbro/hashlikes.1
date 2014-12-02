@@ -1,0 +1,5 @@
+%h4 Payment options:
+.stripe
+  %h5 Credit Card
+  = form_tag specific_charge_path do
+    %script.stripe-button{"data-amount" => @amount, "data-description" => @description, "data-email" => if current_user then current_user.email else nil end, "data-key" => Rails.configuration.stripe[:publishable_key], :src => "https://checkout.stripe.com/v3/checkout.js"}

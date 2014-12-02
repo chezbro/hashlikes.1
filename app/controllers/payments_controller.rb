@@ -24,7 +24,23 @@ class PaymentsController < ApplicationController
   # POST /payments
   # POST /payments.json
   def create
+    Stripe.api_key="sk_test_HEe9zxZ3lbMeOD69WT3sRHUH"
     @payment = Payment.new(payment_params)
+    # Amount in cents
+    @amount = 500
+    customer = Stripe::Customer.create(
+      :email => 'example@stripe.com',
+      :card  => params[:stripeToken]
+    )
+    payment = Stripe::Payment.create(
+      :customer    => customer.id,
+      :amount      => @amount,
+      :description => 'Rails Stripe customer',
+      :currency    => 'usd'
+    )
+  rescue Stripe::CardError => e
+    flash[:error] = e.message
+    redirect_to payments_path
 
     respond_to do |format|
       if @payment.save
